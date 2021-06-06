@@ -118,7 +118,7 @@ header("location: foodlist.php");
             </div>           
           </div>
         </div>
-
+      
         <div class="row">
           <div class="form-group col-xs-12">
             <label for="password"><span class="text-danger" style="margin-right: 5px;">*</span> Password: </label>

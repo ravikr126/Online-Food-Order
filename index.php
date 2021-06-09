@@ -1,152 +1,180 @@
-<?php
-session_start();
-?>
+    <?php include('partials-front/menu.php'); ?>
 
-<html>
+    <!-- fOOD sEARCH Section Starts Here -->
+    <section class="food-search text-center">
+        <div class="container">
+            
+            <form action="<?php echo SITEURL; ?>food-search.php" method="POST">
+                <input type="search" name="search" placeholder="Search for Food.." required>
+                <input type="submit" name="submit" value="Search" class="btn btn-primary">
+            </form>
 
-  <head>
-    <title> Home | Le Cafe' </title>
-  </head>
+        </div>
+    </section>
+    <!-- fOOD sEARCH Section Ends Here -->
 
-  <link rel="stylesheet" type = "text/css" href ="css/bootstrap.min.css">
-
-  <link rel="stylesheet" type = "text/css" href ="css/index.css">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  
-  <body>
-
-  <style>
-body {
-  background-image: url('https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bm9vZGxlc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
-</style>
-
-
-    <button onclick="topFunction()" id="myBtn" title="Go to top">
-      <span class="glyphicon glyphicon-chevron-up"></span>
-    </button>
-    <script type="text/javascript">
-      window.onscroll = function()
-      {
-        scrollFunction()
-      };
-
-      function scrollFunction(){
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-          document.getElementById("myBtn").style.display = "block";
-        } else {
-          document.getElementById("myBtn").style.display = "none";
+    <?php 
+        if(isset($_SESSION['order']))
+        {
+            echo $_SESSION['order'];
+            unset($_SESSION['order']);
         }
-      }
+    ?>
 
-      function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      }
-    </script>
+    <!-- CAtegories Section Starts Here -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="text-center">Explore Foods</h2>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top navigation-clean-search" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.php">Le Cafe'</a>
+            <?php 
+                //Create SQL Query to Display CAtegories from Database
+                $sql = "SELECT * FROM tbl_category WHERE active='Yes' AND featured='Yes' LIMIT 3";
+                //Execute the Query
+                $res = mysqli_query($conn, $sql);
+                //Count rows to check whether the category is available or not
+                $count = mysqli_num_rows($res);
+
+                if($count>0)
+                {
+                    //CAtegories Available
+                    while($row=mysqli_fetch_assoc($res))
+                    {
+                        //Get the Values like id, title, image_name
+                        $id = $row['id'];
+                        $title = $row['title'];
+                        $image_name = $row['image_name'];
+                        ?>
+                        
+                        <a href="<?php echo SITEURL; ?>category-foods.php?category_id=<?php echo $id; ?>">
+                            <div class="box-3 float-container">
+                                <?php 
+                                    //Check whether Image is available or not
+                                    if($image_name=="")
+                                    {
+                                        //Display MEssage
+                                        echo "<div class='error'>Image not Available</div>";
+                                    }
+                                    else
+                                    {
+                                        //Image Available
+                                        ?>
+                                        <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="Pizza" class="img-responsive img-curve">
+                                        <?php
+                                    }
+                                ?>
+                                
+
+                                <h3 class="float-text text-white"><?php echo $title; ?></h3>
+                            </div>
+                        </a>
+
+                        <?php
+                    }
+                }
+                else
+                {
+                    //Categories not Available
+                    echo "<div class='error'>Category not Added.</div>";
+                }
+            ?>
+
+
+            <div class="clearfix"></div>
+        </div>
+    </section>
+    <!-- Categories Section Ends Here -->
+
+
+
+    <!-- fOOD MEnu Section Starts Here -->
+    <section class="food-menu">
+        <div class="container">
+            <h2 class="text-center">Food Menu</h2>
+
+            <?php 
+            
+            //Getting Foods from Database that are active and featured
+            //SQL Query
+            $sql2 = "SELECT * FROM tbl_food WHERE active='Yes' AND featured='Yes' LIMIT 6";
+
+            //Execute the Query
+            $res2 = mysqli_query($conn, $sql2);
+
+            //Count Rows
+            $count2 = mysqli_num_rows($res2);
+
+            //CHeck whether food available or not
+            if($count2>0)
+            {
+                //Food Available
+                while($row=mysqli_fetch_assoc($res2))
+                {
+                    //Get all the values
+                    $id = $row['id'];
+                    $title = $row['title'];
+                    $price = $row['price'];
+                    $description = $row['description'];
+                    $image_name = $row['image_name'];
+                    ?>
+
+                    <div class="food-menu-box">
+                        <div class="food-menu-img">
+                            <?php 
+                                //Check whether image available or not
+                                if($image_name=="")
+                                {
+                                    //Image not Available
+                                    echo "<div class='error'>Image not available.</div>";
+                                }
+                                else
+                                {
+                                    //Image Available
+                                    ?>
+                                    <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                                    <?php
+                                }
+                            ?>
+                            
+                        </div>
+
+                        <div class="food-menu-desc">
+                            <h4><?php echo $title; ?></h4>
+                            <p class="food-price">$<?php echo $price; ?></p>
+                            <p class="food-detail">
+                                <?php echo $description; ?>
+                            </p>
+                            <br>
+
+                            <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                        </div>
+                    </div>
+
+                    <?php
+                }
+            }
+            else
+            {
+                //Food Not Available 
+                echo "<div class='error'>Food not available.</div>";
+            }
+            
+            ?>
+
+            
+
+ 
+
+            <div class="clearfix"></div>
+
+            
+
         </div>
 
-        <div class="collapse navbar-collapse " id="myNavbar">
-          <ul class="nav navbar-nav">
-            <li class="active" ><a href="index.php">Home</a></li>
-            <li><a href="aboutus.php">About</a></li>
-            <li><a href="contactus.php">Contact Us</a></li>
-
-          </ul>
-
-<?php
-if(isset($_SESSION['login_user1'])){
-
-?>
-
-
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_user1']; ?> </a></li>
-            <li><a href="myrestaurant.php">MANAGER CONTROL PANEL</a></li>
-            <li><a href="logout_m.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>
-          </ul>
-<?php
-}
-else if (isset($_SESSION['login_user2'])) {
-  ?>
-           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_user2']; ?> </a></li>
-            <li><a href="foodlist.php"><span class="glyphicon glyphicon-cutlery"></span> Food Zone </a></li>
-            <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart
-              (<?php
-              if(isset($_SESSION["cart"])){
-              $count = count($_SESSION["cart"]); 
-              echo "$count"; 
-            }
-              else
-                echo "0";
-              ?>)
-             </a></li>
-            <li><a href="logout_u.php"><span class="glyphicon glyphicon-log-out"></span> Log Out </a></li>
-          </ul>
-  <?php        
-}
-else {
-
-  ?>
-
-<ul class="nav navbar-nav navbar-right">
-            <li><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Sign Up <span class="caret"></span> </a>
-                <ul class="dropdown-menu">
-              <li> <a href="customersignup.php"> User Sign-up</a></li>
-              <li> <a href="managersignup.php"> Manager Sign-up</a></li>
-              
-            </ul>
-            </li>
-
-            <li><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-log-in"></span> Login <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-              <li> <a href="customerlogin.php"> User Login</a></li>
-              <li> <a href="managerlogin.php"> Manager Login</a></li>
-             
-            </ul>
-            </li>
-          </ul>
-
-<?php
-}
-?>
-       </div>
-
-      </div>
-    </nav>
-
-    <div class="wide">
-      	<div class="col-xs-5 line"><hr></div>
-        <div class="col-xs-2 logo"><img src="images/LogoImage.jpg"></div>
-        <div class="col-xs-5 line"><hr></div>
-        <div class="tagline">Good Food is Good Mood</div>
-    </div>
-    <br>
-    <div>
-    <h2 style="color: white; text-align: center">Feeling Hungry?</h2>
-    <center><a class="btn btn-success btn-lg" href="customerlogin.php" role="button" > Order Now </a></center>
-    </div>
+        <p class="text-center">
+            <a href="#">See All Foods</a>
+        </p>
+    </section>
+    <!-- fOOD Menu Section Ends Here -->
 
     
-  
-</body>
-</html>
+    <?php include('partials-front/footer.php'); ?>

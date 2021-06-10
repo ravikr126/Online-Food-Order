@@ -176,7 +176,7 @@ $arrType=array("veg","non-veg","both");
                                 <h4 class="shop-sidebar-title">Shop By Categories</h4>
 								<div class="shop-catigory">
 									<ul id="faq" class="category_list">
-										<li><a href="<?php echo FRONT_SITE_PATH?>shop"><u>clear</u></a></li>
+										<li><a href="<?php echo FRONT_SITE_PATH?>shop"><u>Clear</u></a></li>
                                         <?php 
                                         while($cat_row=mysqli_fetch_assoc($cat_res)){
                                             $class="selected";

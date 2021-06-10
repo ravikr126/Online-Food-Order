@@ -1,6 +1,6 @@
 <?php
 define('SITE_NAME','Food Ordering Admin');
-define('FRONT_SITE_NAME','Food_Ordering');
+define('FRONT_SITE_NAME','Food Ordering');
 
 define('FRONT_SITE_PATH','http://localhost:8080/food_ordering/');
 define('SERVER_IMAGE',$_SERVER['DOCUMENT_ROOT']."/food_ordering/");

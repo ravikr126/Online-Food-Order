@@ -92,7 +92,7 @@ $arrType=array("veg","non-veg","both");
                                         <?php while($product_row=mysqli_fetch_assoc($product_res)){?>
                                         <div class="product-width col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-30">
                                             <div class="product-wrapper">
-                                                <div class="product-img">
+                                                <div class="product-img">  
                                                     <a href="javascript:void(0)">
                                                         <img src="<?php echo SITE_DISH_IMAGE.$product_row['image']?>" alt="">
                                                     </a>

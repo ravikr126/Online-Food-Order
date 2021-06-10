@@ -22,8 +22,8 @@ include ("header.php");
                             </div>
                             <div class="contact-info-content">
                                 <h4>Our Location</h4>
-                                <p>012 345 678 / 123 456 789</p>
-                                <p><a href="#">info@example.com</a></p>
+                                <p>987654310 / 9551646064</p>
+                                <p><a href="#">info@hotmail.com</a></p>
                             </div>
                         </div>
                     </div>
@@ -46,8 +46,8 @@ include ("header.php");
                             </div>
                             <div class="contact-info-content">
                                 <h4>Write Some Words</h4>
-                                <p><a href="#">Support24/7@example.com </a></p>
-                                <p><a href="#">info@example.com</a></p>
+                                <p><a href="#">Support24/7@hotmail.com </a></p>
+                                <p><a href="#">info@hotmail.com</a></p>
                             </div>
                         </div>
                     </div>

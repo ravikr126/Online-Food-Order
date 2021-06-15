@@ -1,12 +1,12 @@
 jQuery('#frmRegister').on('submit', function (e) {
 	jQuery('.error_field').html('');
-	jQuery('#register_submit').attr('disabled',true);
+	jQuery('#register_submit').attr('disabled', true);
 	jQuery('#form_msg').html('Please wait...');
 	jQuery.ajax({
 		url: FRONT_SITE_PATH + 'login_register_submit',
 		type: 'post',
 		data: jQuery('#frmRegister').serialize(),
-		success:function(result) {
+		success: function (result) {
 			jQuery('#form_msg').html('');
 			jQuery('#register_submit').attr('disabled', false);
 			var data = jQuery.parseJSON(result);
@@ -43,7 +43,7 @@ jQuery('#frmLogin').on('submit', function (e) {
 				if (is_checkout == 'yes') {
 					window.location.href = 'checkout';
 				} else if (data.status == 'success') {
-					//jQuery('#form_login_msg').html(data.msg);
+					
 					window.location.href = 'shop';
 				}
 			}

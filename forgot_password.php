@@ -7,7 +7,7 @@ include ("header.php");
                     <div class="col-lg-7 col-md-12 ml-auto mr-auto">
                         <div class="login-register-wrapper">
                             <div class="login-register-tab-list nav">
-                                <h4>Forgor Password</h4>
+                                <h4>Forgot Password</h4>
                             </div>
                             <div class="tab-content">
                                 <div id="lg1" class="tab-pane active">

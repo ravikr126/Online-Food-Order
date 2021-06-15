@@ -43,7 +43,7 @@ jQuery('#frmLogin').on('submit', function (e) {
 				if (is_checkout == 'yes') {
 					window.location.href = 'checkout';
 				} else if (data.status == 'success') {
-					
+
 					window.location.href = 'shop';
 				}
 			}
@@ -70,7 +70,7 @@ jQuery('#frmForgotPassword').on('submit', function (e) {
 			}
 			if (data.status == 'success') {
 				jQuery('#form_forgot_msg').html(data.msg);
-				//window.location.href='shop.php';
+
 			}
 		}
 

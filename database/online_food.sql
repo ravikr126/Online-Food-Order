@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2020 at 07:28 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.0.25
+-- Generation Time: Jun 15, 2021 at 05:03 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -66,8 +65,8 @@ CREATE TABLE `banner` (
 --
 
 INSERT INTO `banner` (`id`, `image`, `heading`, `sub_heading`, `link`, `link_txt`, `order_number`, `added_on`, `status`) VALUES
-(1, '533799913_banner-4.jpg', 'Drink & Heathy Food', 'Fresh Heathy and Organic', 'shop', 'Order Now', 1, '2020-06-23 03:00:05', 1),
-(2, '546847873_banner-4.jpg', 'Drink & Heathy Food', 'Fresh Heathy and Organic', 'shop', 'Order Now', 1, '2020-06-23 03:06:53', 1);
+(2, '546847873_banner-4.jpg', 'Drink & Heathy Food', 'Fresh Heathy and Organic', 'shop', 'Order Now', 1, '2020-06-23 03:06:53', 1),
+(3, '897050544_wp8791266-yummy-food-wallpapers.jpg', 'NAMASTE', 'THANK YOU FOR CHOOSING US', 'shop', 'ORDER NOW', 0, '2021-06-10 12:09:57', 1);
 
 -- --------------------------------------------------------
 
@@ -115,7 +114,7 @@ CREATE TABLE `contact_us` (
 --
 
 INSERT INTO `contact_us` (`id`, `name`, `email`, `mobile`, `subject`, `message`, `added_on`) VALUES
-(1, 'Vishal', 'phpvishal@gmail.com', '9999999999', 'Test Subject', 'test message', '2020-06-23 03:21:43');
+(1, 'Rajesh', 'rajesh123@gmail.com', '9999999999', 'Test Subject', 'test message', '2021-04-01 03:21:43');
 
 -- --------------------------------------------------------
 
@@ -139,8 +138,7 @@ CREATE TABLE `coupon_code` (
 --
 
 INSERT INTO `coupon_code` (`id`, `coupon_code`, `coupon_type`, `coupon_value`, `cart_min_value`, `expired_on`, `status`, `added_on`) VALUES
-(1, 'FIRST50', 'P', 10, 50, '2020-08-20', 1, '2020-06-20 05:31:03'),
-(2, 'FRIDAY', 'F', 200, 200, '2020-07-15', 1, '2020-07-10 10:38:43');
+(3, 'CUSAT', 'F', 100, 500, '2021-06-18', 1, '2021-06-10 10:02:43');
 
 -- --------------------------------------------------------
 
@@ -156,14 +154,6 @@ CREATE TABLE `delivery_boy` (
   `status` int(11) NOT NULL,
   `added_on` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `delivery_boy`
---
-
-INSERT INTO `delivery_boy` (`id`, `name`, `mobile`, `password`, `status`, `added_on`) VALUES
-(1, 'Vishal', '1234567890', 'vishal', 1, '2020-07-08 08:06:06'),
-(2, 'Amit', '1234567891', 'amit', 1, '2020-07-08 08:06:21');
 
 -- --------------------------------------------------------
 
@@ -188,9 +178,19 @@ CREATE TABLE `dish` (
 
 INSERT INTO `dish` (`id`, `category_id`, `dish`, `dish_detail`, `image`, `type`, `status`, `added_on`) VALUES
 (1, 4, 'Gulab Jamun', 'Gulab Jamun', '977945963_862169053_gulab-jamun.jpg', 'veg', 1, '2020-06-17 10:43:59'),
-(3, 2, 'Chow mein', 'Chow mein', '836724175_Chowmein.jpg', 'non-veg', 1, '2020-06-17 10:47:26'),
+(3, 2, 'Chow mein', 'Chow mein', '836724175_Chowmein.jpg', 'veg', 1, '2020-06-17 10:47:26'),
 (4, 5, 'Butter Chicken', 'Butter chicken or murg makhani is a dish, originating in the Indian subcontinent, of chicken in a mildly spiced tomato sauce.', '348714192_30-Minute-Instant-Pot-Butter-Chicken-7.jpg', 'non-veg', 1, '2020-06-27 12:50:50'),
-(5, 2, 'Testing', 'testing', '140977647_404.jpg', 'veg', 0, '2020-07-06 12:00:24');
+(5, 2, 'Manchurian', 'Desi Chinese', '969053669_MANCHURIAN.jpg', 'veg', 1, '2020-07-06 12:00:24'),
+(6, 1, 'MOMO', '', '180660046_MOMO.jpg', 'veg', 1, '2021-06-10 11:30:17'),
+(7, 1, 'RAJ KACHODI', '', '537622702_325195312_raj-kachori.jpeg', 'veg', 1, '2021-06-10 11:31:27'),
+(8, 5, 'CHICKEN BIRYANI', '', '726187518_BIRYANI.jpg', 'non-veg', 1, '2021-06-10 11:32:38'),
+(9, 1, 'BURGER', '', '590827943_BURGER.jpg', 'veg', 1, '2021-06-10 11:33:17'),
+(10, 1, 'SAMOSA', '', '595801437_SAMOSA.jpg', 'veg', 1, '2021-06-10 11:34:00'),
+(11, 1, 'CAKE', '', '501216384_CAKE.jpg', 'veg', 1, '2021-06-10 11:34:44'),
+(12, 5, 'CHICKEN FRY', '', '176661381_CHICKEN FRY.jpg', 'non-veg', 1, '2021-06-10 11:35:27'),
+(13, 4, 'GAJAR KA HALWA', '', '666519402_GAJAR KA HALWA.jpg', 'veg', 1, '2021-06-10 11:36:16'),
+(14, 3, 'IDLY', '', '901230978_IDLY.jpg', 'veg', 1, '2021-06-10 11:37:03'),
+(15, 3, 'DOSA', '', '652540386_DOSA.jpg', 'veg', 1, '2021-06-10 11:44:34');
 
 -- --------------------------------------------------------
 
@@ -233,13 +233,28 @@ CREATE TABLE `dish_details` (
 --
 
 INSERT INTO `dish_details` (`id`, `dish_id`, `attribute`, `price`, `status`, `added_on`) VALUES
-(1, 3, 'Full', 300, 1, '2020-06-19 10:25:47'),
-(2, 3, 'Half', 170, 1, '2020-06-19 10:49:45'),
-(6, 1, 'Per Piece', 40, 1, '2020-06-20 00:00:00'),
-(8, 4, 'Half', 250, 0, '2020-06-27 12:50:50'),
-(9, 4, 'Full', 410, 1, '2020-06-27 12:50:50'),
-(11, 5, 'Test1', 100, 1, '2020-07-06 12:00:24'),
-(12, 5, 'Test2', 200, 0, '2020-07-06 12:00:24');
+(1, 3, 'Full', 100, 1, '2020-06-19 10:25:47'),
+(2, 3, 'Half', 60, 1, '2020-06-19 10:49:45'),
+(6, 1, 'Per Piece', 10, 1, '2020-06-20 00:00:00'),
+(8, 4, 'Half', 100, 0, '2020-06-27 12:50:50'),
+(9, 4, 'Full', 200, 1, '2020-06-27 12:50:50'),
+(11, 5, 'FULL', 100, 1, '2020-07-06 12:00:24'),
+(12, 5, 'HALF', 60, 0, '2020-07-06 12:00:24'),
+(13, 6, 'FULL', 30, 1, '2021-06-10 11:30:17'),
+(14, 6, 'HALF', 20, 1, '2021-06-10 11:30:17'),
+(15, 7, 'FULL', 100, 1, '2021-06-10 11:31:27'),
+(16, 8, 'FULL', 100, 1, '2021-06-10 11:32:38'),
+(17, 8, 'HALF', 60, 1, '2021-06-10 11:32:38'),
+(18, 9, 'FULL', 50, 1, '2021-06-10 11:33:17'),
+(19, 10, 'Per piece', 10, 1, '2021-06-10 11:34:00'),
+(20, 11, '1 SLICE', 50, 1, '2021-06-10 11:34:44'),
+(21, 12, 'FULL', 200, 1, '2021-06-10 11:35:27'),
+(22, 12, 'HALF', 110, 1, '2021-06-10 11:35:27'),
+(23, 13, 'FULL', 50, 1, '2021-06-10 11:36:16'),
+(24, 13, 'HALF', 30, 1, '2021-06-10 11:36:16'),
+(25, 14, 'FULL', 15, 1, '2021-06-10 11:37:03'),
+(26, 14, 'HALF', 8, 1, '2021-06-10 11:37:03'),
+(27, 15, 'FULL', 50, 1, '2021-06-10 11:44:34');
 
 -- --------------------------------------------------------
 
@@ -262,7 +277,14 @@ CREATE TABLE `order_detail` (
 INSERT INTO `order_detail` (`id`, `order_id`, `dish_details_id`, `price`, `qty`) VALUES
 (1, 1, 6, 40, 6),
 (2, 2, 6, 40, 4),
-(3, 3, 6, 40, 3);
+(3, 3, 6, 40, 3),
+(4, 4, 26, 15, 1),
+(5, 4, 27, 120, 2),
+(6, 5, 19, 20, 5),
+(7, 5, 15, 200, 2),
+(8, 6, 13, 60, 5),
+(9, 6, 15, 200, 8),
+(10, 7, 19, 20, 12);
 
 -- --------------------------------------------------------
 
@@ -297,9 +319,10 @@ CREATE TABLE `order_master` (
 --
 
 INSERT INTO `order_master` (`id`, `user_id`, `name`, `email`, `mobile`, `address`, `total_price`, `coupon_code`, `final_price`, `zipcode`, `delivery_boy_id`, `payment_status`, `payment_type`, `payment_id`, `order_status`, `cancel_by`, `cancel_at`, `added_on`, `delivered_on`) VALUES
-(1, 2, 'Vishal', 'ervishalwebdeveloper@gmail.com', '9999999999', 'Test', 240, '', 240, '110076', 0, 'pending', 'wallet', '', 5, 'admin', '2020-07-21 08:13:01', '2020-07-18 06:08:19', '0000-00-00 00:00:00'),
-(2, 2, 'Vishal', 'ervishalwebdeveloper@gmail.com', '9999999999', 'test', 160, '', 160, '110076', 0, 'pending', 'wallet', '', 4, 'user', '0000-00-00 00:00:00', '2020-07-20 06:09:59', '0000-00-00 00:00:00'),
-(3, 5, 'Vishal', 'phpvishal@gmail.com', '9999999999', 'Test', 120, '', 120, '110076', 0, 'pending', 'cod', '', 4, 'user', '0000-00-00 00:00:00', '2020-07-23 09:09:41', '0000-00-00 00:00:00');
+(4, 15, 'RAVI KUMAR', 'ravi14577@gmail.com', '7597689316', 'efewafgergregvrgvsegv', 255, '', 255, '823001', 0, 'pending', 'paytm', '', 1, 'user', '0000-00-00 00:00:00', '2021-06-15 06:52:05', '0000-00-00 00:00:00'),
+(5, 17, 'RAUSHAN', 'raukum74@gmail.com', '999999999', 'dservaergva', 500, '', 500, '823001', 0, 'pending', 'paytm', '', 1, 'user', '0000-00-00 00:00:00', '2021-06-15 07:17:12', '0000-00-00 00:00:00'),
+(6, 17, 'RAUSHAN', 'raukum74@gmail.com', '999999999', 'efewafgergregvrgvsegv', 1900, 'CUSAT', 1800, '823001', 0, 'pending', 'paytm', '', 1, 'user', '0000-00-00 00:00:00', '2021-06-15 07:18:17', '0000-00-00 00:00:00'),
+(7, 17, 'RAUSHAN', 'raukum74@gmail.com', '999999999', 'qwdfwefewf', 240, '', 240, '823001', 0, 'pending', 'cod', '', 1, 'user', '0000-00-00 00:00:00', '2021-06-15 07:18:43', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -392,8 +415,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `mobile`, `password`, `status`, `email_verify`, `rand_str`, `referral_code`, `from_referral_code`, `added_on`) VALUES
-(2, 'Vishal', 'ervishalwebdeveloper@gmail.com', '9999999999', '$2y$10$cZ6sSDVYUINCnynmB3Tbuend7e7bRqgCPeD.RPmxdRucxKhbSo/52', 1, 1, 'lmkaetixyrzqoqy', 'lmkaetixyrzqoqds', '', '2020-07-18 05:11:37'),
-(5, 'Vishal', 'phpvishal@gmail.com', '9999999999', '$2y$10$wWBWMJTK37jkyLujN8YQoOVfQQt/3.B9ruoaNkjruQEwz4ZVfvNJa', 1, 1, 'zdoxxhajyeqtgpp', 'lhqtkjofzevfdai', 'lmkaetixyrzqoqds', '2020-07-23 08:48:08');
+(1, 'RAVI KUMAR', 'ravi14577@gmail.com', '7597689316', '$2y$10$ll4XkxKCjIsX0vvMvtOlZO.AK9ooDWCcBsiaLqFAqTFPerZx62xZS', 1, 1, 'ghhcfoviemynulm', 'bjixrwmtancfqnk', '', '2021-06-15 06:50:06');
 
 -- --------------------------------------------------------
 
@@ -431,7 +453,8 @@ INSERT INTO `wallet` (`id`, `user_id`, `amt`, `msg`, `type`, `payment_id`, `adde
 (17, 2, 200, 'Order Id-4', 'out', '', '2020-07-19 04:30:51'),
 (18, 3, 100, 'Test msg', 'in', '', '2020-07-21 08:22:33'),
 (19, 2, 200, 'Test Msg', 'in', '', '2020-07-21 08:22:46'),
-(22, 2, 50, 'Referral Amt from phpvishal@gmail.com', 'in', '', '2020-07-23 09:12:28');
+(23, 6, 500, '', 'in', '', '2021-06-10 09:57:12'),
+(24, 17, 500, '', 'in', '', '2021-06-15 07:22:02');
 
 --
 -- Indexes for dumped tables
@@ -547,7 +570,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `banner`
 --
 ALTER TABLE `banner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -559,13 +582,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `coupon_code`
 --
 ALTER TABLE `coupon_code`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `delivery_boy`
@@ -577,31 +600,31 @@ ALTER TABLE `delivery_boy`
 -- AUTO_INCREMENT for table `dish`
 --
 ALTER TABLE `dish`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `dish_cart`
 --
 ALTER TABLE `dish_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `dish_details`
 --
 ALTER TABLE `dish_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `order_master`
 --
 ALTER TABLE `order_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `order_status`
@@ -625,13 +648,13 @@ ALTER TABLE `setting`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `wallet`
 --
 ALTER TABLE `wallet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -223,10 +223,7 @@ if(isset($_POST['place_order'])){
 															</span>
 														</div>
 														
-														<!--<div class="single-ship">
-															<input type="radio" name="address" value="dadress">
-															<label>Ship to different address</label>
-														</div>-->
+														
 													</div>
 													<div class="billing-back-btn">
 														<div class="billing-btn">
@@ -259,7 +256,7 @@ if(isset($_POST['place_order'])){
 											<a href="#"><img alt="" src="<?php echo SITE_DISH_IMAGE.$list['image']?>"></a>
 										</div>
 										<div class="shopping-cart-title">
-											<h4><a href="#">Phantom Remote </a></h4>
+											<h4><a href="#">pROFDUCT</a></h4>
 											<h6>Qty: <?php echo $list['qty']?></h6>
 											<span><?php echo 
 														$list['qty']*$list['price'];?> Rs</span>

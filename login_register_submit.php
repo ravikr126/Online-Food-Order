@@ -54,7 +54,7 @@ if($type=='login'){
 		$status=$row['status'];
 		$email_verify=$row['email_verify'];
 		$dbpassword=$row['password'];
-		if($email_verify==1){
+		if($email_verify==0){
 			if($status==1){
 				if(password_verify($password,$dbpassword)){
 					$_SESSION['FOOD_USER_ID']=$row['id'];
@@ -74,8 +74,6 @@ if($type=='login'){
 			}else{
 				$arr=array('status'=>'error','msg'=>'Your account has been deactivated.');
 			}
-		}else{
-			$arr=array('status'=>'error','msg'=>'Please varify your email id');
 		}
 	}else{
 		$arr=array('status'=>'error','msg'=>'Please enter valid email id');	
@@ -93,7 +91,7 @@ if($type=='forgot'){
 		$status=$row['status'];
 		$email_verify=$row['email_verify'];
 		$id=$row['id'];
-		if($email_verify==1){
+		if($email_verify==0){
 			if($status==1){
 				$rand_password=rand(11111,99999);
 				$new_password=password_hash($rand_password,PASSWORD_BCRYPT);
@@ -105,8 +103,6 @@ if($type=='forgot'){
 			}else{
 				$arr=array('status'=>'error','msg'=>'Your account has been deactivated.');
 			}
-		}else{
-			$arr=array('status'=>'error','msg'=>'Please varify your email id');
 		}
 	}else{
 		$arr=array('status'=>'error','msg'=>'Please enter valid email id');	

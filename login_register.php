@@ -25,9 +25,9 @@ if(isset($_GET['referral_code']) && $_GET['referral_code']!=''){
                                                 <input type="email" name="user_email" placeholder="Email" required>
                                                 <input type="password" name="user_password" placeholder="Password" required>
                                                 <div class="button-box">
-                                                    <div class="login-toggle-btn">
-                                                        <a href="<?php echo FRONT_SITE_PATH?>forgot_password">Forgot Password?</a>
-                                                    </div>
+                                                   <!-- <div class="login-toggle-btn">
+                                                    <a href="<?php echo FRONT_SITE_PATH?>forgot_password">Forgot Password?</a>
+                                                    </div>  -->
                                                     <button type="submit" id="login_submit">Login</button>
 													<input type="hidden" name="type" value="login"/>
 													<input type="hidden" name="is_checkout" id="is_checkout" value=""/>

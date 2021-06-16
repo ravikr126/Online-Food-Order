@@ -63,8 +63,8 @@ if(isset($_POST['place_order'])){
 		$email=$getUserDetailsBy['email'];
 		if($payment_type=='cod'){
 			$emailHTML=orderEmail($insert_id);
-			include('smtp/PHPMailerAutoload.php');
-			send_email($email,$emailHTML,'Order Placed');
+			//include('smtp/PHPMailerAutoload.php');
+			//send_email($email,$emailHTML,'Order Placed');
 			redirect(FRONT_SITE_PATH.'success');
 		}
 		
@@ -72,8 +72,8 @@ if(isset($_POST['place_order'])){
 			manageWallet($_SESSION['FOOD_USER_ID'],$final_price,'out','Order Id-'.$insert_id);
 			mysqli_query($con,"update  order_master set payment_status='success' where id='$insert_id'");
 			$emailHTML=orderEmail($insert_id);
-			include('smtp/PHPMailerAutoload.php');
-			send_email($email,$emailHTML,'Order Placed');
+			//include('smtp/PHPMailerAutoload.php');
+			//send_email($email,$emailHTML,'Order Placed');
 			redirect(FRONT_SITE_PATH.'success');
 		}
 		
@@ -256,7 +256,7 @@ if(isset($_POST['place_order'])){
 											<a href="#"><img alt="" src="<?php echo SITE_DISH_IMAGE.$list['image']?>"></a>
 										</div>
 										<div class="shopping-cart-title">
-											<h4><a href="#">pROFDUCT</a></h4>
+											<h4><a href="#"><?php echo $list['dish']?></a></h4>
 											<h6>Qty: <?php echo $list['qty']?></h6>
 											<span><?php echo 
 														$list['qty']*$list['price'];?> Rs</span>

@@ -3,7 +3,7 @@ session_start();
 include('database.inc.php');
 include('function.inc.php');
 include('constant.inc.php');
-include('smtp/PHPMailerAutoload.php');
+// include('smtp/PHPMailerAutoload.php');
 
 $type=get_safe_value($_POST['type']);
 $added_on=date('Y-m-d h:i:s');

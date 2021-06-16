@@ -3,19 +3,17 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-7">
-                            <!--<div class="copyright">
-                                <p>Copyright © <a href="#">Billy.</a> . All Right Reserved.</p>
-                            </div>   -->
+                        <p><a class="bg-light" href="mailto:19it069raus@ug.cusat.ac.in">19it069raus@ug.cusat.ac.in</a> <br>
+                           <a class="bg-light" href="mailto:19it070ravi@ug.cusat.ac.in">19it070ravi@ug.cusat.ac.in</a> <br>
+                           <a class="bg-light" href="mailto:19it078shak@ug.cusat.ac.in">19it078shak@ug.cusat.ac.in</a></p>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-5">
+                        <div class="col-lg-6 col-md-6 col-md-9">
                             <div class="footer-social">
                                 <ul>
-                                    <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-                                    <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-                                    <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+                                    <li><a href="https://www.facebook.com/"><i class="ion-social-facebook"></i></a></li>
+                                    <li><a href="https://twitter.com/?lang=en"><i class="ion-social-twitter"></i></a></li>
+                                    <li><a href="https://www.instagram.com/accounts/login/?hl=en"><i class="ion-social-instagram-outline"></i></a></li>
                                     <li><a href="#"><i class="ion-social-googleplus-outline"></i></a></li>
-                                    <li><a href="#"><i class="ion-social-rss"></i></a></li>
-                                    <li><a href="#"><i class="ion-social-dribbble-outline"></i></a></li>
                                 </ul>
                             </div>
                         </div>

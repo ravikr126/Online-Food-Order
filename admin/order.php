@@ -55,7 +55,7 @@ $res=mysqli_query($con,$sql);
 							</td>
 							<td><?php echo $row['payment_type']?></td>
 							<td>
-								<div class="payment_status payment_status_<?php echo $row['payment_status']?>"><?php echo ucfirst($row['payment_status'])?></div>
+								<div style="color:Black;" class="payment_status payment_status_<?php echo ('Sucessfull')?>"><?php echo ucfirst($row['payment_status'])?></div>
 							</td>
 							<td><?php echo $row['order_status_str']?></td>
 							<td>

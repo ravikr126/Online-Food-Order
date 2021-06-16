@@ -51,7 +51,7 @@ if(isset($_POST['place_order'])){
 		}
 		
 		$added_on=date('Y-m-d h:i:s');
-		$sql="insert into order_master(user_id,name,email,mobile,address,zipcode,total_price,order_status,payment_status,added_on,coupon_code,final_price,payment_type) values('".$_SESSION['FOOD_USER_ID']."','$checkout_name','$checkout_email','$checkout_mobile','$checkout_address','$checkout_zip','$totalPrice','1','pending','$added_on','$coupon_code','$final_price','$payment_type')";
+		$sql="insert into order_master(user_id,name,email,mobile,address,zipcode,total_price,order_status,payment_status,added_on,coupon_code,final_price,payment_type) values('".$_SESSION['FOOD_USER_ID']."','$checkout_name','$checkout_email','$checkout_mobile','$checkout_address','$checkout_zip','$totalPrice','1','Successful','$added_on','$coupon_code','$final_price','$payment_type')";
 		mysqli_query($con,$sql);
 		$insert_id=mysqli_insert_id($con);
 		$_SESSION['ORDER_ID']=$insert_id;

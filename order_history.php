@@ -71,7 +71,7 @@ $res=mysqli_query($con,$sql);
 											?>
 											</td>
 											<td>
-												<div class="payment_status payment_status_<?php echo $row['payment_status']?>"><?php echo ucfirst($row['payment_status'])?></div>
+												<div style="color:green" class="payment_status payment_status_<?php echo $row['payment_status']?>"><?php echo ucfirst($row['payment_status'])?></div>
 											</td>
                                         </tr>
 										<?php }} ?>
